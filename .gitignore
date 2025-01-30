@@ -1,0 +1,47 @@
+# .NET build results
+bin/
+obj/
+
+# .NET user-specific files
+.idea/
+.vs/
+.vscode/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer package files
+*.exe
+*.dll
+*.pdb
+*.appx
+*.appxbundle
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# VS for Mac files
+.vscode/
+
+# Rider IDE files
+.idea/
+
+# NUGET
+*.nupkg
+# .NET Core / ASP.NET Core publish folder
+publish/
+
+# Microsoft Azure Web App publish folder
+wwwroot/
+
+# Logs
+*.log
