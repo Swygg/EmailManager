@@ -6,8 +6,8 @@ namespace IHM_Console.Classes
 {
     public class Ihm : IIhm
     {
-        private IHosterBllManager _hosterBllManager;
-        public Ihm(IHosterBllManager hosterBllManager)
+        private IHostersBllManager _hosterBllManager;
+        public Ihm(IHostersBllManager hosterBllManager)
         {
 
             _hosterBllManager = hosterBllManager;

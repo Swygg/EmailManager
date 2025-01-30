@@ -13,8 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 var serviceProvider = new ServiceCollection()
-    .AddScoped<IHosterDalManager, HosterDalManager>()
-    .AddScoped<IHosterBllManager, HosterBllManager>()
+    .AddScoped<IHostersDalManager, HostersDalManager>()
+    .AddScoped<IHostersBllManager, HostersBllManager>()
     .AddScoped<IIhm, Ihm>()
     .BuildServiceProvider();
 

@@ -2,7 +2,7 @@
 
 namespace BLL.Interfaces
 {
-    public interface IHosterBllManager
+    public interface IHostersBllManager
     {
         ICollection<Hoster> GetAll();
         Hoster? GetOne(string name);

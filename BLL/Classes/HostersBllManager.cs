@@ -4,11 +4,11 @@ using MODELS;
 
 namespace BLL.Classes
 {
-    public class HosterBllManager : IHosterBllManager
+    public class HostersBllManager : IHostersBllManager
     {
-        private IHosterDalManager _hosterDalManager;
+        private IHostersDalManager _hosterDalManager;
 
-        public HosterBllManager(IHosterDalManager hosterDalManager)
+        public HostersBllManager(IHostersDalManager hosterDalManager)
         {
             _hosterDalManager = hosterDalManager;
         }

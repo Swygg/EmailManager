@@ -2,7 +2,7 @@
 
 namespace DAL.Interfaces
 {
-    public interface IHosterDalManager
+    public interface IHostersDalManager
     {
         ICollection<Hoster> GetAll();
         Hoster? GetOne(string name);

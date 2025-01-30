@@ -3,11 +3,11 @@ using MODELS;
 
 namespace DAL.Classes
 {
-    public class HosterDalManager : IHosterDalManager
+    public class HostersDalManager : IHostersDalManager
     {
         private List<Hoster> _hosters;
 
-        public HosterDalManager()
+        public HostersDalManager()
         {
             _hosters = new List<Hoster>();
         }
