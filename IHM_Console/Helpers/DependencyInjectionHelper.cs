@@ -21,10 +21,12 @@ namespace IHM_Console.Helpers
                 //DAL
                 .AddScoped<IHostersDalManager, HostersDalManager>()
                 .AddScoped<IEmailAccountsDalManager, EmailAccountsDalManager>()
+                .AddScoped<IEmailsDalManager, EmailsDalManager>()
 
                 //BLL
                 .AddScoped<IHostersBllManager, HostersBllManager>()
                 .AddScoped<IEmailAccountsBllManager, EmailAccountsBllManager>()
+                .AddScoped<IEmailsBllManager, EmailsBllManager>()
 
                 //IHM
                 .AddScoped<IIhm, Ihm>()

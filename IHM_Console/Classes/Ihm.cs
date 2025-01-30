@@ -1,5 +1,4 @@
-﻿using BLL.Classes;
-using BLL.Interfaces;
+﻿using BLL.Interfaces;
 using IHM_Console.Interfaces;
 using MODELS;
 
@@ -9,12 +8,15 @@ namespace IHM_Console.Classes
     {
         private IHostersBllManager _hosterBllManager;
         private IEmailAccountsBllManager _emailAccountsBllManager;
+        private IEmailsBllManager _emailsBllManager;
         public Ihm(IHostersBllManager hosterBllManager, 
-            IEmailAccountsBllManager emailAccountsBllManager)
+            IEmailAccountsBllManager emailAccountsBllManager,
+            IEmailsBllManager emailsBllManager)
         {
 
             _hosterBllManager = hosterBllManager;
             _emailAccountsBllManager = emailAccountsBllManager;
+            _emailsBllManager = emailsBllManager;
 
             //Mock Hosters
             var hosters = new List<Hoster>()
@@ -66,6 +68,21 @@ namespace IHM_Console.Classes
             }
         }
 
+        public void GetEmailsFromAccounts()
+        {
+            var emailAccounts = _emailAccountsBllManager.GetAll();
+            foreach (var emailAccount in emailAccounts)
+            {
+                Console.WriteLine($"Email : {emailAccount.Login}");
+                var emails = _emailsBllManager.GetEmails(emailAccount);
+                Console.WriteLine($"Nombre emails : {emails.Count}");
+                foreach (var email in emails)
+                {
+                    DescribeEmail(email);
+                }
+            }
+        }
+
         private void DescribeHoster(Hoster hoster)
         {
             Console.WriteLine($"{hoster.Name} - Imap = ({hoster.ServerImap}/{hoster.PortIMAP})");
@@ -74,6 +91,11 @@ namespace IHM_Console.Classes
         private void DescribeEmailAccount(EmailAccount emailAccount)
         {
             Console.WriteLine($"{emailAccount.Login}");
+        }
+
+        private void DescribeEmail(Email email)
+        {
+            Console.WriteLine($"{email.Title}");
         }
     }
 }

@@ -11,8 +11,9 @@ var serviceProvider = DependencyInjectionHelper.GetServiceProvider();
 
 // Résolution et utilisation du service
 var ihm = serviceProvider.GetRequiredService<IIhm>();
-ihm.GetHostersList();
-ihm.GetEmailAccountsList();
+//ihm.GetHostersList();
+//ihm.GetEmailAccountsList();
+ihm.GetEmailsFromAccounts();
 
 
 
