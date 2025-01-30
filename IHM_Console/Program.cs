@@ -1,27 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
-
-using BLL.Classes;
-using BLL.Interfaces;
-using DAL.Classes;
-using DAL.Interfaces;
-using IHM_Console.Classes;
+using IHM_Console.Helpers;
 using IHM_Console.Interfaces;
 using MailKit;
 using MailKit.Net.Imap;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-var serviceProvider = new ServiceCollection()
-    .AddScoped<IHostersDalManager, HostersDalManager>()
-    .AddScoped<IHostersBllManager, HostersBllManager>()
-    .AddScoped<IIhm, Ihm>()
-    .BuildServiceProvider();
+
+var serviceProvider = DependencyInjectionHelper.GetServiceProvider();
 
 // Résolution et utilisation du service
 var ihm = serviceProvider.GetRequiredService<IIhm>();
-
 ihm.GetHostersList();
+ihm.GetEmailAccountsList();
 
 
 

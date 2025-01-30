@@ -1,7 +1,13 @@
 ﻿namespace MODELS
 {
-    public class Account
+    public class EmailAccount
     {
+        public EmailAccount(string login, string password) 
+        {
+            Login = login;
+            Password = password;
+        }
+
         public string Login { get; set; } = null!;
         public string Password { get; set; } = null!;
         public string Hoster

@@ -11,5 +11,6 @@ namespace IHM_Console.Interfaces
     public interface IIhm
     {
         public void GetHostersList();
+        public void GetEmailAccountsList();
     }
 }

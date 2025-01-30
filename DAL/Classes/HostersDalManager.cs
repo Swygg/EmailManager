@@ -5,7 +5,7 @@ namespace DAL.Classes
 {
     public class HostersDalManager : IHostersDalManager
     {
-        private List<Hoster> _hosters;
+        private List<Hoster> _hosters = new List<Hoster>();
 
         public HostersDalManager()
         {
