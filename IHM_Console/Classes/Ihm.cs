@@ -9,7 +9,7 @@ namespace IHM_Console.Classes
         private IHostersBllManager _hosterBllManager;
         private IEmailAccountsBllManager _emailAccountsBllManager;
         private IEmailsBllManager _emailsBllManager;
-        public Ihm(IHostersBllManager hosterBllManager, 
+        public Ihm(IHostersBllManager hosterBllManager,
             IEmailAccountsBllManager emailAccountsBllManager,
             IEmailsBllManager emailsBllManager)
         {
@@ -74,11 +74,17 @@ namespace IHM_Console.Classes
             foreach (var emailAccount in emailAccounts)
             {
                 Console.WriteLine($"Email : {emailAccount.Login}");
-                var emails = _emailsBllManager.GetEmails(emailAccount);
-                Console.WriteLine($"Nombre emails : {emails.Count}");
-                foreach (var email in emails)
+                try
                 {
-                    DescribeEmail(email);
+                    var emails = _emailsBllManager.GetEmails(emailAccount);
+                    Console.WriteLine($"Nombre emails : {emails.Count}");
+                    foreach (var email in emails)
+                    {
+                        DescribeEmail(email);
+                    }
+                }
+                catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -95,7 +101,7 @@ namespace IHM_Console.Classes
 
         private void DescribeEmail(Email email)
         {
-            Console.WriteLine($"{email.Title}");
+            Console.WriteLine($"{email.Date.ToString("dd/MM/yyyy")} - {email.Title}");
         }
     }
 }

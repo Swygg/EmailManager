@@ -15,7 +15,7 @@ var ihm = serviceProvider.GetRequiredService<IIhm>();
 //ihm.GetEmailAccountsList();
 ihm.GetEmailsFromAccounts();
 
-
+//Console.ReadKey();
 
 return;
 var config = new ConfigurationBuilder()
