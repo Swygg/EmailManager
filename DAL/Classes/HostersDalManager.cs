@@ -38,7 +38,7 @@ namespace DAL.Classes
                 throw new Exception("Hoster inexistant");
 
             hosterToUpdate.Name = input.Name;
-            hosterToUpdate.ServerImap = input.ServerImap;
+            hosterToUpdate.ServerIMAP = input.ServerIMAP;
             hosterToUpdate.PortIMAP = input.PortIMAP;
             hosterToUpdate.ServerSMTP = input.ServerSMTP;
             hosterToUpdate.PortSMTP = input.PortSMTP;

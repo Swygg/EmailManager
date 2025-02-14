@@ -24,9 +24,10 @@ namespace DAL.Classes
                 throw new Exception($"Aucun hoster connu pour {emailAccount.Hoster}");
 
             using var client = new ImapClient();
-            client.Connect(hoster.ServerImap, hoster.PortIMAP, MailKit.Security.SecureSocketOptions.SslOnConnect);
             try
             {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                client.Connect(hoster.ServerIMAP, hoster.PortIMAP, MailKit.Security.SecureSocketOptions.StartTls);
                 client.Authenticate(emailAccount.Login, emailAccount.Password);
 
                 var inbox = client.Inbox;

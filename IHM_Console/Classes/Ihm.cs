@@ -35,9 +35,7 @@ namespace IHM_Console.Classes
             //Mock EmailAccount
             var emailAccounts = new List<EmailAccount>()
             {
-                new EmailAccount("toto1@laposte.net", "123"),
-                new EmailAccount("toto2@hotmail.com", "123"),
-                new EmailAccount("toto3@hotmail.fr", "123"),
+    
             };
             foreach (var emailAccount in emailAccounts)
             {
@@ -91,7 +89,7 @@ namespace IHM_Console.Classes
 
         private void DescribeHoster(Hoster hoster)
         {
-            Console.WriteLine($"{hoster.Name} - Imap = ({hoster.ServerImap}/{hoster.PortIMAP})");
+            Console.WriteLine($"{hoster.Name} - Imap = ({hoster.ServerIMAP}/{hoster.PortIMAP})");
         }
 
         private void DescribeEmailAccount(EmailAccount emailAccount)
