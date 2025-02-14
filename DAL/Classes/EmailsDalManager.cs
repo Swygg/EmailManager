@@ -27,7 +27,7 @@ namespace DAL.Classes
             try
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-                client.Connect(hoster.ServerIMAP, hoster.PortIMAP, MailKit.Security.SecureSocketOptions.StartTls);
+                client.Connect(hoster.ServerIMAP, 143, MailKit.Security.SecureSocketOptions.StartTls);
                 client.Authenticate(emailAccount.Login, emailAccount.Password);
 
                 var inbox = client.Inbox;
@@ -50,7 +50,7 @@ namespace DAL.Classes
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                throw;
             }
             return results;
         }

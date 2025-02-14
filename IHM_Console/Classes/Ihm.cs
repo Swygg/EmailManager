@@ -35,7 +35,7 @@ namespace IHM_Console.Classes
             //Mock EmailAccount
             var emailAccounts = new List<EmailAccount>()
             {
-    
+
             };
             foreach (var emailAccount in emailAccounts)
             {
@@ -43,6 +43,7 @@ namespace IHM_Console.Classes
             }
         }
 
+        #region IHM
         public void GetHostersList()
         {
             var hosters = _hosterBllManager.GetAll()
@@ -81,7 +82,8 @@ namespace IHM_Console.Classes
                         DescribeEmail(email);
                     }
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     Console.WriteLine(ex.Message);
                 }
             }
@@ -101,5 +103,63 @@ namespace IHM_Console.Classes
         {
             Console.WriteLine($"{email.Date.ToString("dd/MM/yyyy")} - {email.Title}");
         }
+        #endregion
+
+
+
+        #region EmailAccount management
+        public ICollection<EmailAccount> GetAllEmailAccount()
+        {
+            return _emailAccountsBllManager.GetAll();
+        }
+        public EmailAccount? GetOneEmailAccount(string email)
+        {
+            return _emailAccountsBllManager.GetOne(email);
+        }
+        public void AddEmailAccount(EmailAccount account)
+        {
+            _emailAccountsBllManager.Add(account);
+        }
+        public void UpdateEmailAccount(string email, EmailAccount account)
+        {
+            _emailAccountsBllManager.Update(email, account);
+        }
+        public void RemoveEmailAccount(string email)
+        {
+            _emailAccountsBllManager.Remove(email);
+        }
+        #endregion
+
+
+        #region Emails management
+        public ICollection<Email> GetEmails(EmailAccount emailAccount)
+        {
+            return _emailsBllManager.GetEmails(emailAccount);
+        }
+        #endregion
+
+
+        #region Hosters management
+        public ICollection<Hoster> GetAllHoster()
+        {
+            return _hosterBllManager.GetAll();
+        }
+        public Hoster? GetOneHoster(string name)
+        {
+            return _hosterBllManager.GetOne(name);
+        }
+        public void AddHoster(Hoster hoster)
+        {
+            _hosterBllManager.Add(hoster);
+        }
+        public void UpdateHoster(string name, Hoster input)
+        {
+            _hosterBllManager.Update(name, input);
+        }
+        public void RemoveHoster(string name)
+        {
+            _hosterBllManager.Remove(name);
+        }
+        #endregion
     }
 }
